@@ -1,5 +1,7 @@
 import logging
+
 import psycopg2
+
 
 class PlPy(object):
 
@@ -15,7 +17,6 @@ class PlPy(object):
 
     def notice(self, message):
         self.logger.info(message)
-
 
     def execute(self, *args, **kwargs):
         return self.cursor.execute(*args, **kwargs)
