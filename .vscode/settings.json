@@ -1,0 +1,17 @@
+{
+    "workbench.colorTheme": "Cobalt2",
+    "flake8.importStrategy": "fromEnvironment",
+    "flake8.interpreter": [
+        "python3"
+    ],
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Args": [
+        "--config=${workspaceFolder}/.config/.flake8"
+    ],
+    "flake8.args": [
+        "--config=${workspaceFolder}/.config/.flake8"
+    ],
+    "python.defaultInterpreterPath": "/usr/bin/python3",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "modificationsIfAvailable"
+}
