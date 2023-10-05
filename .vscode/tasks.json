@@ -9,8 +9,8 @@
             "command": "echo Hello"
         },
         {
-            "label": "Run File",
-            "command": "python3 ${file} bdist_wheel",
+            "label": "Build wheel",
+            "command": "python3 setup.py bdist_wheel",
             "type": "shell",
             "group": {
                 "kind": "build",
@@ -20,7 +20,8 @@
                 "reveal": "always",
                 "panel": "new",
                 "focus": true
-            }
+            },
+            "problemMatcher": []
         },
         {
             "label": "nosetest",
@@ -35,6 +36,6 @@
                 "panel": "new",
                 "focus": true
             }
-        }        
+        }
     ]
 }

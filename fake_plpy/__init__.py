@@ -45,8 +45,8 @@ class PlPy(object):
     def execute(self, *args, **kwargs):
         return self.cursor.execute(*args, **kwargs)
 
-    def prepare(self, *args, **kwargs):
-        return self.cursor.prepare(*args, **kwargs)
+    def prepare(self, statement):
+        return self.execute(f"PREPARE {statement}")
 
 
     def quote_literal(self, *args, **kwargs):
