@@ -1,6 +1,9 @@
+#!/usr/bin/env python3
 import logging
 
 import psycopg2
+from psycopg2 import sql
+from psycopg2.extensions import quote_ident
 
 
 class PlPy(object):
@@ -14,12 +17,40 @@ class PlPy(object):
         self.dsn = dsn
         self.db = psycopg2.connect(dsn=self.dsn)
         self.cursor = self.db.cursor()
+        self.ident = quote_ident()
+        self.literal = sql.Literal
 
     def notice(self, message):
         self.logger.info(message)
+
+    def debug(self, message):
+        self.logger.info(message)
+
+    def log(self, message):
+        self.logger.info(message)
+
+    def info(self, message):
+        self.logger.info(message)
+
+    def warning(self, message):
+        self.logger.info(message)
+
+    def error(self, message):
+        self.logger.info(message)
+
+    def fatal(self, message):
+        self.logger.info(message)
+
 
     def execute(self, *args, **kwargs):
         return self.cursor.execute(*args, **kwargs)
 
     def prepare(self, *args, **kwargs):
         return self.cursor.prepare(*args, **kwargs)
+
+
+    def quote_literal(self, *args, **kwargs):
+        return self.literal(*args, **kwargs)
+
+    def quote_ident(self, *args, **kwargs):
+        return self.ident(*args, **kwargs)
