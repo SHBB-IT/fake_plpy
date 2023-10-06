@@ -17,7 +17,7 @@ class PlPy(object):
         self.dsn = dsn
         self.db = psycopg2.connect(dsn=self.dsn)
         self.cursor = self.db.cursor()
-        self.ident = quote_ident()
+        self.ident = quote_ident(value=None, scope=None)
         self.literal = sql.Literal
 
     def notice(self, message):
@@ -52,5 +52,8 @@ class PlPy(object):
     def quote_literal(self, *args, **kwargs):
         return self.literal(*args, **kwargs)
 
-    def quote_ident(self, *args, **kwargs):
-        return self.ident(*args, **kwargs)
+    def quote_ident(self, value):
+        scope = self.cursor
+        if self.cursor is None:
+            scope = self.db
+        return self.ident(value, scope)
